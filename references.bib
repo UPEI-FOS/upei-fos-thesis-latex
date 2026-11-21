@@ -1,0 +1,160 @@
+% =============================================================================
+% references.bib - example references for the UPEI Faculty of Science thesis
+% =============================================================================
+% Every entry below is FICTIONAL. The people, journals, publishers, DOIs and
+% web pages do not exist. Delete these entries and replace them with your own,
+% and check every entry against the original source.
+%
+% HOW THIS FILE WORKS
+%   - Never type an at sign in these comment lines: BibTeX reads it as the start
+%     of an entry, even after %, and the file stops working.
+%   - Each entry starts with an at sign, its type and the key, e.g. the
+%     line "(at)article{smith2020," below. The key (e.g. smith2020) is what
+%     you type in the thesis: \citep{smith2020} or \citet{smith2020}.
+%   - Only entries you cite appear in Literature Cited. To list an entry you
+%     have not cited in the text, add \nocite{key} in thesis.tex (rarely
+%     appropriate in a thesis).
+%   - Lines starting with % are comments. BibTeX ignores text outside entries,
+%     so these notes do not affect the output.
+%   - After changing this file, rebuild fully (latexmk does this for you; by
+%     hand it is pdflatex, bibtex, pdflatex, pdflatex).
+%
+% WHICH ENTRY TYPE TO USE
+%   article        A paper in a journal (peer-reviewed or not). Needs author,
+%                   title, journal, year; add volume, number, pages and doi.
+%   book           A whole book with a publisher. If you cite one chapter of
+%                   an edited book (chapters by different authors), use
+%                   incollection instead.
+%   incollection   A chapter, with its own authors, in an edited book.
+%   inproceedings  A paper published in conference proceedings. A talk or
+%                   poster with no published paper is misc.
+%   phdthesis /    A thesis. Add school (university) and year.
+%   mastersthesis
+%   techreport     A report from a government, agency or institution, e.g. a
+%                   Fisheries and Oceans Canada research document.
+%   misc           Anything that does not fit above: web pages, datasets,
+%                   software, standards, maps, personal communications,
+%                   talks and posters.
+%   Choose the type that describes what the item IS, not where you found it.
+%   A journal article you read online is still an article, not a web page.
+%
+% WEB PAGES AND ONLINE SOURCES (plainnat and most BibTeX styles)
+%   BibTeX styles such as plainnat have no online type and no urldate field,
+%   so use misc with:
+%     howpublished = {\url{https://...}}   the address of the page
+%     note         = {Accessed 15 March 2026}   the date you viewed it
+%   Always record the access date for web pages, because they change.
+%   If an article, chapter or paper has a DOI, give the doi field and leave
+%   the url out: a DOI is permanent, a URL may not be. plainnat does not print
+%   doi for misc entries, so for a dataset or software give the DOI as a link:
+%     url = {https://doi.org/10.xxxx/xxxxx}
+%
+% COMMON PROBLEMS AND WHERE TO LOOK
+%   Where to look:
+%     - thesis.blg (the BibTeX log, next to thesis.pdf) lists every warning,
+%       e.g. "Warning--empty journal in smith2020". Read it before you submit.
+%     - thesis.log shows "Citation `xyz' undefined": the key is misspelt or the
+%       entry is missing from this file. A "?" in the PDF means the same.
+%     - BibTeX stops at the first syntax error in an entry (missing comma,
+%       unbalanced braces) and may skip all entries after it. The .blg gives
+%       the line number.
+%   Typical mistakes:
+%     1. Capitals lost in titles. Styles may lower-case titles, so protect
+%        proper nouns, acronyms and species names with braces:
+%          title = {Growth of {Atlantic} salmon in {Prince Edward Island} {DNA} assays}
+%     2. Authors separated by commas. Always separate authors with "and":
+%          author = {Smith, Jane A. and Chen, Wei and Doe, John}
+%        Never write "et al." in the author field: list every author and let
+%        the style shorten the list.
+%     3. Organisations as authors. Wrap the name in an extra pair of braces,
+%        or BibTeX treats "Canada" as a surname:
+%          author = {{Environment and Climate Change Canada}}
+%     4. Accents and special characters. Write accented letters with braces,
+%        which works with every LaTeX engine:  {\'e} {\`a} {\"o} {\c{c}}
+%        Escape & % $ # _ in titles and journal names:  \&  \%  \$  \#  \_
+%        (but not inside \url{...}).
+%     5. Page ranges use two hyphens: pages = {101--115}.
+%     6. Duplicate keys. Two entries with the same key: BibTeX keeps one and
+%        warns in the .blg.
+%     7. Exports from Google Scholar, publisher sites or reference managers
+%        (Zotero, Mendeley, EndNote) are often wrong: all-capital titles,
+%        missing volume or pages, journal abbreviations, wrong entry type,
+%        preprint instead of published version. Check each one against the
+%        article itself.
+%     8. Using a field the style ignores (e.g. urldate, or "date" instead of
+%        "year" with plainnat). The information silently disappears; check the
+%        Literature Cited in the PDF.
+%
+% Keep one citation style throughout the thesis. The style is set by
+% \bibliographystyle{...} in thesis.tex.
+% =============================================================================
+
+
+% --- Journal article (article) ------------------------------------------------
+% Required: author, title, journal, year. Strongly recommended: volume, number
+% (issue), pages and doi. Give the journal's full name unless your style uses
+% abbreviations.
+@article{smith2020,
+  author  = {Smith, Jane A. and Chen, Wei and MacDonald, Fiona},
+  title   = {Seasonal variation in eelgrass biomass in {Prince Edward Island} estuaries},
+  journal = {Journal of Example Coastal Studies},
+  volume  = {12},
+  number  = {3},
+  pages   = {101--115},
+  year    = {2020},
+  doi     = {10.5555/jecs.2020.0312}
+}
+
+% --- Book (book) --------------------------------------------------------------
+% Required: author (or editor), title, publisher, year. Add edition for any
+% edition after the first, and address (the publisher's city).
+@book{jones2019,
+  author    = {Jones, Robert},
+  title     = {Principles of Example Ecology},
+  edition   = {2nd},
+  publisher = {Example Academic Press},
+  address   = {Halifax, NS},
+  year      = {2019}
+}
+
+% --- Conference paper (inproceedings) -----------------------------------------
+% Required: author, title, booktitle (the title of the proceedings), year.
+% Add editor, pages, publisher, address (where the conference was held or the
+% publisher's city) and doi when available.
+@inproceedings{arsenault2022,
+  author    = {Arsenault, Marie-Claude and Patel, Ravi},
+  title     = {Low-cost sensors for monitoring water temperature in small streams},
+  booktitle = {Proceedings of the Example Conference on Environmental Monitoring},
+  editor    = {Gallant, Paul},
+  pages     = {45--52},
+  publisher = {Example Society for Environmental Science},
+  address   = {Charlottetown, PE},
+  year      = {2022},
+  doi       = {10.5555/ecem.2022.45}
+}
+
+% --- Web page (online reference, with the date accessed) -----------------------
+% plainnat has no online type: use misc with howpublished = {\url{...}} and
+% put the access date in note. The author here is an organisation, so it is
+% wrapped in double braces.
+@misc{ecoatlantic2025,
+  author       = {{Example Atlantic Watershed Council}},
+  title        = {Stream temperature monitoring guide},
+  howpublished = {\url{https://www.example.org/stream-temperature-guide}},
+  year         = {2025},
+  note         = {Accessed 15 March 2026}
+}
+
+% --- Miscellaneous (misc): a dataset ---------------------------------------
+% Use misc for datasets, software, maps, standards, talks or posters. Say
+% what the item is in howpublished, and give a version and DOI if there is one.
+% plainnat ignores the doi field for misc, so the DOI goes in url as a link.
+% Cite software the same way, with its version number in the title or note.
+@misc{lee2024data,
+  author       = {Lee, Hannah and Smith, Jane A.},
+  title        = {Water temperature records for {North Shore} streams, 2018--2023},
+  howpublished = {Dataset, Example Data Repository},
+  year         = {2024},
+  note         = {Version 2.1},
+  url          = {https://doi.org/10.5555/edr.2024.0117}
+}

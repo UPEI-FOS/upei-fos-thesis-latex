@@ -1,0 +1,177 @@
+% !TEX program = pdflatex
+% UPEI Faculty of Science thesis template (MSc and PhD).
+% Build with pdfLaTeX:  latexmk -pdf thesis.tex   (or pdflatex, bibtex, pdflatex x2)
+% LuaLaTeX and XeLaTeX also work (latexmk -lualatex thesis.tex); LuaLaTeX gives the
+% most complete tagging for an accessible PDF.
+% Works with TeX Live (macOS/Linux) and MiKTeX (Windows). The tagged, accessible PDF
+% needs a current distribution (2025 or later); on an older one, comment out the
+% \DocumentMetadata line to build a draft.
+\providecommand\DocumentMetadata[1]{}% very old LaTeX: ignore the line below
+\DocumentMetadata{lang=en-CA, pdfversion=2.0, pdfstandard=ua-2, tagging=on}
+
+% Options: add twoside for double-sided printing, arial for Arial instead of Times.
+\documentclass{upei-fos-thesis}
+
+\usepackage{natbib}  % author-year or numbered citations; see Literature Cited below
+
+% --- Title page --------------------------------------------------------------------
+\title{Thesis Title}
+\author{Your Full Name}
+\degree{Degree Name}
+%\degree{Doctor of Philosophy}
+%\degree{Master of Applied Health Services Reserach}
+
+\program{Program name}    % Environmental Sciences, Human Biology,
+                                    % Mathematical and Computational Sciences, or
+                                    % Molecular and Macromolecular Sciences
+                                    
+\academicunit{Academic unit name}% your academic unit(s); separate two with \\
+\thesisdate{April 2027}
+\copyrightyear{2027}
+
+\hypersetup{pdftitle={Thesis Title}, pdfauthor={Your Full Name}}
+
+\begin{document}
+
+% ===================================================================================
+% PRELIMINARY PAGES: lowercase Roman numerals; the title page is page i, not shown.
+% Do not add pages for conditions of use, permission to use or certification of
+% thesis work. The signature page is added to the final thesis after the defence.
+% ===================================================================================
+\maketitle
+
+\begin{abstract}
+In 500 words or fewer, state the problem or problems you studied, the methods you
+used, and your main results and conclusions.
+\end{abstract}
+
+\begin{acknowledgments}
+Acknowledge your supervisor or supervisors, committee members and anyone else who
+helped with your research. Name your funding sources, such as scholarships and
+assistantships. A dedication may also go here.
+\end{acknowledgments}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Delete either list if your thesis does not need it.
+\begin{abbreviations}
+  \abbrev{ESC}{Environmental Sciences}
+  \abbrev{SI}{International System of Units}
+\end{abbreviations}
+
+\begin{glossaryterms}
+  \item[Term] Definition of a technical term used in the thesis.
+\end{glossaryterms}
+
+% ===================================================================================
+% MAIN BODY: Arabic numerals from page 1 through the appendices.
+% This sample follows the traditional style. For publication style, give each
+% chapter its own abstract, introduction, methods, results, discussion and
+% literature cited, and end with a short General Conclusions chapter.
+% ===================================================================================
+\mainmatter
+
+\chapter{Introduction and Literature Review}
+
+State the purpose of the research, review the literature that gives context to your
+research questions \citep{smith2020}, and explain the rationale for your methods,
+including your hypotheses or objectives.
+
+\section{Background}
+
+Spell out each term the first time you use it, unless it is a standard unit or
+appears in your list of abbreviations. Use SI units, with a space between the number
+and the unit, for example 25~\textdegree C or 4.5~mL.
+
+Cite each kind of source the same way; references.bib shows how to enter each type.
+Use \verb|\citep| for a citation in parentheses and \verb|\citet| when the authors
+are part of the sentence. For example, \citet{jones2019} describes the general
+principles (a book); low-cost temperature loggers were tested in small streams
+\citep{arsenault2022} (a conference paper); a regional monitoring guide
+\citep{ecoatlantic2025} (a web page, with the date it was accessed); and earlier
+records are available as a published dataset \citep{lee2024data} (a miscellaneous
+source). Several sources can go in one citation
+\citep[e.g.][]{smith2020, arsenault2022}.
+
+\section{Objectives}
+
+Number equations consecutively through the thesis:
+\begin{equation}
+  N_t = N_0 e^{rt}
+  \label{eq:growth}
+\end{equation}
+
+\subsection{Objective 1}
+
+\chapter{Materials and Methods}
+
+Describe your work in enough detail for someone else to repeat it. Name any animal
+care, biosafety or research ethics protocols and confirm that they were approved.
+
+\chapter{Results}
+
+Present your results in a logical sequence of text, tables and figures, as in
+Table~\ref{tab:example} and Figure~\ref{fig:example}. Use the text to highlight key
+observations rather than repeat the data.
+
+% Table: number and caption above, not centred; define nonstandard abbreviations.
+\begin{table}[htbp]
+  \caption{Example table. Mean values (SD) by site. DW, dry weight.}
+  \label{tab:example}
+  \begin{tabular}{lrr}
+    \toprule
+    Site & Biomass (g DW) & Count\textsuperscript{a} \\
+    \midrule
+    North & 12.4 (1.1) & 18 \\
+    South &  9.8 (0.9) & 22 \\
+    \bottomrule
+  \end{tabular}
+
+  \footnotesize\textsuperscript{a} Footnotes use superscript letters or numbers.
+\end{table}
+
+% Figure: caption below, understandable without the main text. Describe the figure
+% in alt={...} so the PDF is accessible. Don't rely on colour alone.
+\begin{figure}[htbp]
+  \centering
+  \fbox{\parbox[c][2in][c]{4in}{\centering Replace with \texttt{\textbackslash
+    includegraphics[width=\textbackslash linewidth, alt=\{...\}]\{file\}}}}
+  \caption{Example figure. Explain any symbols, arrows or letters so that the figure
+    can be understood on its own.}
+  \label{fig:example}
+\end{figure}
+
+\chapter{Discussion}
+
+Focus on your new and important findings, their implications and limitations, and
+how they relate to other studies \citep{jones2019}.
+
+% ===================================================================================
+% LITERATURE CITED: one style, used consistently. Change the style to suit your
+% discipline, for example:
+%   plainnat (author-year)     ieeetr (IEEE)          achemso (ACS, with \usepackage{achemso})
+%   amsplain (AMS)             ACM-Reference-Format (ACM, from the acmart package)
+% For author-year citations keep \usepackage{natbib}; for numbered citations use
+% \usepackage[numbers]{natbib}.
+% ===================================================================================
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Literature Cited}
+\renewcommand\bibname{Literature Cited}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+% ===================================================================================
+% APPENDICES: continue the page numbering and appear in the table of contents.
+% ===================================================================================
+\appendix
+
+\chapter{Supporting Material}
+
+Use appendices for material that supports the thesis but is not needed to understand
+it, such as equipment designs, proofs of equations, recipes for buffers or solutions,
+and large data tables.
+
+\end{document}
